@@ -24,22 +24,31 @@ public:
 
 	AMyPlayerController();
 
+
 	virtual void SetupInputComponent() override;
 	
 	virtual void BeginPlay() override;
 
 	UEnhancedInputComponent* MyInput;
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
 	UInputMappingContext* IMC;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UInputAction* IA_Look;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UInputAction* IA_Move;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UInputAction* IA_Interaction;
-	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UInputAction* IA_Jump;
+	float Multiplier = 5;
 
-	//void Look();
+	void Look(const FInputActionValue& Value);
 
-	//void Move();
+	void Move(const FInputActionValue& Value);
 
-	//void Interaction();
+	void Interaction(const FInputActionValue& Value);
+
+	void Jump();
 
 
 };
